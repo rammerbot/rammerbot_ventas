@@ -1,0 +1,132 @@
+.topbar {
+  height: 70px;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: var(--shadow-sm);
+  z-index: 5;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  margin-right: 16px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-light);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-fast);
+}
+
+.search-bar:focus-within {
+  border-color: var(--color-primary);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+}
+
+.search-icon {
+  color: var(--color-text-muted);
+  margin-right: 8px;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: var(--color-text-main);
+  font-size: 0.95rem;
+}
+
+.search-bar input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(42, 157, 143, 0.1);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-indicator.online {
+  background-color: var(--color-success);
+  box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.2);
+}
+
+.status-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background-color: var(--color-bg-light);
+  color: var(--color-primary);
+}
+
+.icon-btn .badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+}

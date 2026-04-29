@@ -1,0 +1,88 @@
+.tile {
+  display: block;
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-tile);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: all var(--transition-normal);
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 119, 182, 0.15);
+}
+
+.tile:hover::before {
+  width: 8px;
+}
+
+.tile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tile-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 119, 182, 0.1);
+  color: var(--color-primary);
+  transition: all var(--transition-normal);
+}
+
+.tile:hover .tile-icon {
+  transform: scale(1.1);
+}
+
+.tile-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.tile-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Color Variants */
+.tile-success::before { background-color: var(--color-success); }
+.tile-success .tile-icon { background-color: rgba(42, 157, 143, 0.1); color: var(--color-success); }
+.tile-success .tile-count { color: var(--color-success); }
+
+.tile-info::before { background-color: var(--color-info); }
+.tile-info .tile-icon { background-color: rgba(0, 119, 182, 0.1); color: var(--color-info); }
+.tile-info .tile-count { color: var(--color-info); }
+
+.tile-warning::before { background-color: var(--color-warning); }
+.tile-warning .tile-icon { background-color: rgba(244, 162, 97, 0.1); color: var(--color-warning); }
+.tile-warning .tile-count { color: var(--color-warning); }
+
+.tile-danger::before { background-color: var(--color-danger); }
+.tile-danger .tile-icon { background-color: rgba(231, 111, 81, 0.1); color: var(--color-danger); }
+.tile-danger .tile-count { color: var(--color-danger); }
+
+.tile-primary::before { background-color: var(--color-primary); }
+.tile-primary .tile-icon { background-color: rgba(0, 119, 182, 0.1); color: var(--color-primary); }
+.tile-primary .tile-count { color: var(--color-primary); }

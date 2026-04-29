@@ -1,0 +1,73 @@
+:root {
+  /* Paleta de colores principal */
+  --color-primary: #0077b6; /* Azul principal */
+  --color-secondary: #00b4d8; /* Azul claro / cyan */
+  --color-accent: #90e0ef; /* Azul muy claro */
+  
+  /* Colores funcionales */
+  --color-success: #2a9d8f; /* Verde (éxito/ventas) */
+  --color-info: #0077b6; /* Azul (admin/datos) */
+  --color-warning: #f4a261; /* Naranja (acciones intermedias) */
+  --color-danger: #e76f51; /* Rojo (críticas) */
+  
+  /* Básicos */
+  --color-bg-light: #f8f9fa; /* Fondo general */
+  --color-bg-dark: #264653; /* Sidebar o elementos oscuros */
+  --color-white: #ffffff; /* Blanco para tarjetas */
+  --color-text-main: #2b2d42; /* Texto principal oscuro */
+  --color-text-muted: #8d99ae; /* Texto secundario gris */
+
+  /* Sombras (solicitado por usuario) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-tile: 0 8px 24px rgba(0, 119, 182, 0.1); /* Sombra con toque azul para las tarjetas */
+  --shadow-btn: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra para botones */
+
+  /* Bordes Redondeados (solicitado por usuario) */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem; /* Para tarjetas prominentes */
+  --radius-full: 9999px;
+
+  /* Transiciones */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Clases utilitarias */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
