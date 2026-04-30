@@ -18,3 +18,13 @@
   padding: 24px;
   background-color: var(--color-bg-light);
 }
+@media print {
+  .main-layout, .content-wrapper, .main-content {
+    overflow: visible !important;
+    height: auto !important;
+    display: block !important;
+  }
+  .sidebar, .top-bar {
+    display: none !important;
+  }
+}

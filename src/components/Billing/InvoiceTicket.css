@@ -1,0 +1,103 @@
+.ticket-container {
+    width: 300px;
+    padding: 10px;
+    background: white;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    margin: 0 auto;
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.branch-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ticket-divider {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.ticket-info p, .customer-info p {
+    margin: 2px 0;
+}
+
+.ticket-items {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ticket-items th {
+    font-size: 10px;
+    border-bottom: 1px dashed #000;
+}
+
+.ticket-items td {
+    padding: 4px 0;
+    vertical-align: top;
+}
+
+.ticket-totals {
+    margin-top: 10px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.main-total {
+    font-weight: bold;
+    font-size: 14px;
+    border-top: 1px solid black;
+    padding-top: 5px;
+}
+
+.main-total-ves {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ticket-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+/* Hide from screen only if NOT in preview */
+@media screen {
+    .printable:not(.preview-ticket) {
+        display: none;
+    }
+}
+
+.preview-ticket {
+    display: block !important;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transform: scale(1.1);
+    transform-origin: top center;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .printable, .printable * {
+        visibility: visible;
+    }
+    .printable {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+}

@@ -1,7 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { BillingProvider } from './context/BillingContext';
 import MainLayout from './components/layout/MainLayout';
 import Dashboard from './pages/Dashboard';
+import CustomersPage from './pages/Customers/CustomersPage';
+import SuppliersPage from './pages/Suppliers/SuppliersPage';
+import ProductsPage from './pages/Products/ProductsPage';
+import PurchasesPage from './pages/Purchases/PurchasesPage';
+import BillingPage from './pages/Billing/BillingPage';
+import ReportsPage from './pages/Reports/ReportsPage';
+import Login from './components/auth/Login';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import './App.css';
 
 // Placeholder para otras páginas
@@ -14,25 +25,37 @@ const PlaceholderPage = ({ title }) => (
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="billing" element={<PlaceholderPage title="Módulo de Facturación" />} />
-          <Route path="customers" element={<PlaceholderPage title="Módulo de Clientes" />} />
-          <Route path="budget" element={<PlaceholderPage title="Módulo de Presupuesto" />} />
-          <Route path="delivery" element={<PlaceholderPage title="Nota de Entrega" />} />
-          <Route path="returns" element={<PlaceholderPage title="Devolución de Facturas" />} />
-          <Route path="reprint" element={<PlaceholderPage title="Reimpresión de Documentos" />} />
-          <Route path="service" element={<PlaceholderPage title="Orden de Servicio" />} />
-          <Route path="reports" element={<PlaceholderPage title="Reportes del Sistema" />} />
-          <Route path="orders" element={<PlaceholderPage title="Pedidos de Clientes" />} />
-          <Route path="void" element={<PlaceholderPage title="Anular Documento" />} />
-          <Route path="delete" element={<PlaceholderPage title="Eliminar Documento" />} />
-          <Route path="*" element={<PlaceholderPage title="Página no encontrada" />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <AuthProvider>
+        <BillingProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              
+              <Route element={<ProtectedRoute />}>
+                <Route path="/" element={<MainLayout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="billing" element={<BillingPage />} />
+                  <Route path="customers" element={<CustomersPage />} />
+                  <Route path="suppliers" element={<SuppliersPage />} />
+                  <Route path="products" element={<ProductsPage />} />
+                  <Route path="purchases" element={<PurchasesPage />} />
+                  <Route path="movements" element={<PlaceholderPage title="Movimientos" />} />
+                  <Route path="reports" element={<ReportsPage />} />
+                  
+                  {/* Rutas de configuración solo para administradores */}
+                  <Route element={<ProtectedRoute allowedRoles={['ADMINISTRADOR']} />}>
+                    <Route path="settings" element={<PlaceholderPage title="Configuración" />} />
+                  </Route>
+    
+                  <Route path="*" element={<PlaceholderPage title="Página no encontrada" />} />
+                </Route>
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </BillingProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

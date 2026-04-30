@@ -22,3 +22,42 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Fastapi
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments (importante!)
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables / Secrets (NUNCA envie para o Git)
+.env
+.flaskenv
+
+# Database (se estiver usando SQLite localmente)
+*.sqlite3
+*.db
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Unit test / coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs (VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Operating System
+.DS_Store
+Thumbs.db

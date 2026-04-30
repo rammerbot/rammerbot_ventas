@@ -1,0 +1,263 @@
+.reports-page {
+    padding: 30px;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.reports-header h1 {
+    font-size: 2rem;
+    color: #181c32;
+    margin-bottom: 5px;
+}
+
+.reports-header p {
+    color: #7e8299;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.reports-controls {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-group label {
+    font-weight: 700;
+    color: #3f4254;
+    font-size: 0.9rem;
+}
+
+.control-group select {
+    padding: 10px 15px;
+    border: 1px solid #e1e3ea;
+    border-radius: 10px;
+    background: #f8f9fa;
+    font-weight: 600;
+    min-width: 150px;
+}
+
+.btn-primary {
+    padding: 11px 25px;
+    background: #009ef7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover { background: #0086d1; }
+
+.sales-book-container h2 {
+    font-size: 1.4rem;
+    color: #181c32;
+    margin-bottom: 15px;
+}
+
+.book-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px dashed #eff2f5;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.branch-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: right;
+    color: #7e8299;
+    font-size: 0.9rem;
+}
+
+.sales-book-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.sales-book-table th {
+    background: #f8f9fa;
+    padding: 15px 10px;
+    text-align: left;
+    color: #3f4254;
+    font-weight: 700;
+    border-bottom: 2px solid #eff2f5;
+}
+
+.sales-book-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eff2f5;
+    color: #181c32;
+}
+
+.row-dev {
+    background: #fff5f8;
+}
+
+.row-dev td {
+    color: #f1416c;
+}
+
+.book-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.summary-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.summary-card span {
+    font-size: 0.8rem;
+    color: #7e8299;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.summary-card strong {
+    font-size: 1.3rem;
+    color: #181c32;
+}
+
+.summary-card.highlight {
+    background: #e8fff3;
+}
+
+.summary-card.highlight strong {
+    color: #50cd89;
+}
+
+.report-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    padding: 12px 20px;
+    background: #f1f3f9;
+    color: #7e8299;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-success {
+    padding: 12px 20px;
+    background: #50cd89;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tab-navigation {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: #f1f3f9;
+    border: none;
+    border-radius: 10px;
+    color: #7e8299;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.tab.active {
+    background: #009ef7;
+    color: white;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+.daily-report-container {
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.report-header-print {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.stat-row.total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #181c32;
+    font-size: 1.4rem;
+}
+
+@media print {
+    /* Hide everything by default */
+    body * {
+        visibility: hidden;
+    }
+    /* Show ONLY the report container and its children */
+    .reports-page, .reports-page * {
+        visibility: visible;
+    }
+    /* Position the report at the top of the print page */
+    .reports-page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    /* Force hide specific non-printable elements */
+    .no-print, .report-actions, .tab-navigation, .reports-controls {
+        display: none !important;
+    }
+    /* Ensure the card doesn't have shadows or weird borders */
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        padding: 0 !important;
+    }
+}
